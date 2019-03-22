@@ -1,0 +1,5 @@
+confusable-homoglyphs==3.2.0
+Django==1.11.20
+django-registration==2.4.1
+pytz==2018.9
+whitenoise==3.3.1
