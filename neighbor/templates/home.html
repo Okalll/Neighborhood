@@ -1,0 +1,115 @@
+{% extends 'base.html'%}
+{%load static %}
+{{form.media}}
+
+{% block styles%}
+<link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+{% endblock %}
+
+{% block content%}
+<body>
+<h1 class="glow">NEIGHBOR-HOOD</h1>
+</body>
+ <section id="photos">
+        
+        <div class="container">
+       
+            <div class="row">
+                 {% for hood in hoods %}
+                 
+                <div class="col-lg-4 col-sm-6 portfolio-item">
+
+                    <img src="{{hood.image.url}}" alt="">
+                     <a href=""><h2>View</h2></a>
+
+                   <div class = "box-content">
+                        <h3 class = "name">{{hood.name}}</h3>
+                        
+                   </div>
+                 
+                </div>
+                 {% endfor %} 
+                           
+
+            </div>
+        </div>
+    </section>
+
+<div class="container mt40">
+    <section class="row">
+
+
+<style>
+body{
+    background-color: beige;
+    opacity: 0.8;
+    font-family: 'Cookie', cursive;
+}
+.glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+#photos {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+#photos img {
+    width: 100%;
+    height: 15em;
+    border-radius: 0.8em;
+    transition: transform 2s ease-in-out;
+}
+
+#photos img:hover {
+    opacity: 0.8;
+    transform: scale(1.15);
+}
+
+#photos h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-top: 0.15em solid black;
+    border-bottom: 0.15em solid black;
+    color: yellow;
+    display: none;
+}
+
+#photos .col-lg-4:hover h2 {
+    display: block;
+}
+
+.portfolio-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+img.img-fluid.rounded-circle.mb-3 {
+    height: 192px;
+    width: 192px;
+    object-fit: cover;
+}
+.featherlight .featherlight-image{
+    width:600px;
+    height:400px;
+}
+</style>
+{% endblock%}
