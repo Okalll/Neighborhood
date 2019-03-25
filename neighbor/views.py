@@ -69,3 +69,9 @@ def update_profile(request):
             return HttpResponseRedirect(reverse('profile'))
     return render(request, 'update_profile.html',
         {'form1': form1, 'form2': form2})
+
+def details(request, hood_id):
+    hoods = Hoods.objects.get(id=hood_id)
+    
+    return render(request, "details.html", locals())
+
