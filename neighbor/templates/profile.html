@@ -1,0 +1,66 @@
+{% load bootstrap4 %}
+{% load static %}
+{% block styles%}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block title %}
+ {{ user.first_name|lower|capfirst }}'s Profile
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    {# Display profile information #}
+    <div class="grid-25">
+        {% if user.userprofile.avatar %}
+            <img class="img-responsive img-circle" src="{{ user.userprofile.avatar.url }}">
+        {% else %}
+            <img class="img-responsive" src="{% static 'img/765-default-avatar.png' %}">
+        {% endif %}
+    </div>
+    <div class="grid-65">
+    {% comment %} <div class="row"> {% endcomment %}
+        <h1>Your Profile</h1>
+        <h2>First Name</h2>
+        <p>{{ user.first_name|lower|capfirst }}</p>
+        <h2>Last Name</h2>
+        <p>{{ user.last_name|lower|capfirst }}</p>
+        <h2>Email</h2>
+        <p>{{ user.email }}</p>
+        <h2>Date of Birth</h2>
+        {% if user.userprofile.dob %}
+            <p>{{ user.userprofile.dob|date:"F d, Y" }}</p>
+        {% else %}
+            <p>Add date of birth by clicking <a href="#edit_button">edit button</a> below.</p>
+        {% endif %}
+        <h2>Biography</h2>
+        {% if user.userprofile.bio %}
+            {% autoescape on %}
+                <p>{{ user.userprofile.bio }}</p>
+            {% endautoescape %}
+        {% else %}
+            <p>Add biography by clicking <a href="#edit_button">edit button</a> below.</p>
+        {% endif %}
+        <h2>Hood</h2>
+        {% if user.userprofile.hood %}
+            <p>{{ user.userprofile.hood }}</p>
+        {% else %}
+            <p>Add current location clicking <a href="#edit_button">edit button</a> below.</p>
+        {% endif %}
+        <h2>Favorite Hobby</h2>
+        {% if user.userprofile.hobby %}
+            <p>{{ user.userprofile.hobby }}</p>
+        {% else %}
+            <p>Add your favorite hobby by clicking <a href="#edit_button">edit button</a> below.</p>
+        {% endif %}
+        <div id="#edit_button" class="row buttons">
+            <a id="#edit_button" href="{% url 'update_profile' %}"  class="button" role="button" style="text-decoration: none;">Edit Profile</a>
+        </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
