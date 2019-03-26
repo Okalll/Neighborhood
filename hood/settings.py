@@ -49,6 +49,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 INSTALLED_APPS = [
     'neighbor',
     'bootstrap4',
+    'bootstrap3'
     'material',
     'django.contrib.admin',
     'django.contrib.auth',
