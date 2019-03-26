@@ -1,10 +1,8 @@
 <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
-<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
 <div class="w3-bar w3-black">
 <nav>
-  <a href="/home" class="w3-bar-item w3-button">Home</a>
+  <a href="{% url 'home' %}" class="w3-bar-item w3-button">Home</a>
   </nav>
 </div>
 <div class="container-fluid" style="margin-top: 130px;" align="center">
