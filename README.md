@@ -63,13 +63,14 @@ You need the following to work on the project:
 |  Behaviour |  Input  |  Output |
 |------------|---------|---------|
 | The program should displays the sign-up form first | credentials of the user | A user is created |
-| The program should send an activation email  | Click the link sent in your email | Redirected to log-in again for proper authentication |
-|The program should direct the user to their timeline page when logged in | Login as a user | Redirected to the timeline page with photos posted by other users |
-|The program should add a like or remove a like when the heart icon is clicked on | Click on the heart icon | Click on the heart icon | A like is added if it wasn't added before else it is removed |
-|The program should have a comment section on an image | Write on the comment section | The comment will appear on the image| 
+| No account at all  | Click sign-up | User created successfully |
+|The program should direct the user to the homepage | Navigate through the page | Try out the functionalities |
+|The program should can allow posting of a neigh-borhood | Click on Add Mtaa | Prompted to add a neighborhood through a form 
+|The program allows a user to update the hood  | Write update form | Hood and profile updated | 
 
 ## Link to Live Website
 
+https://vee-hood.herokuapp.com
 
 ## Technologies used
 - Python 3.6
