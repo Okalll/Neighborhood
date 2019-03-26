@@ -71,7 +71,7 @@ def update_profile(request):
         {'form1': form1, 'form2': form2})
 
 def details(request, hood_id):
-    hoods = Hoods.objects.get(id=hood_id)
+    hood = Hood.objects.get(id=hood_id)
     
     return render(request, "details.html", locals())
 

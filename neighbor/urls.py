@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^new_hood/', views.new_hood, name='new_hood'),
     url(r'^profile/', views.profile, name='profile'),
     url(r'^update_profile/', views.update_profile, name='update_profile'),
+    url(r"^details/(?P<hood_id>[0-9])$", views.details, name="details"),
 ]
 
 if settings.DEBUG:
